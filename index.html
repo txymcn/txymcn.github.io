@@ -3,179 +3,190 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>⚡ RYAN'S THUNDER BLOG ⚡</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>☠ RYAN'S EXTREME ZONE ☠</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
+    margin: 0;
     min-height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Comic Sans MS", Impact, sans-serif;
+    overflow-x: hidden;
+    font-family: "Comic Sans MS", cursive;
+    text-align: center;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #00ff00 0px,
+            #00ff00 15px,
+            #ff00ff 15px,
+            #ff00ff 30px,
+            #ffff00 30px,
+            #ffff00 45px
+        );
+
+    animation: bg 4s linear infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes bg {
+    to { background-position: 200% 200%; }
+}
+
+h1 {
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-weight: 1000;
+    color: yellow;
+    -webkit-text-stroke: 2px red;
+    text-shadow:
+        5px 5px blue,
+        10px 10px magenta,
+        0 0 25px white;
+    animation: title 2s ease-in-out infinite alternate;
+}
+
+@keyframes title {
+    from { transform: rotate(-2deg) scale(1); }
+    to { transform: rotate(2deg) scale(1.12); }
+}
+
+.panel {
+    margin: 50px auto;
+    padding: 35px 15px;
+    width: 90%;
+    max-width: 950px;
+
     background: linear-gradient(
-        45deg,
+        135deg,
         #ff0000,
         #ff00ff,
         #0000ff,
         #00ffff,
-        #00ff00,
-        #ffff00,
-        #ff0000
+        #ffff00
     );
-    background-size: 600% 600%;
-    animation: thunder 5s linear infinite;
-}
 
-/* Rainbow background */
-@keyframes thunder {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
+    border: 12px ridge yellow;
+    outline: 8px dashed red;
 
-/* Main content */
-.container {
-    text-align: center;
-    padding: 45px 25px;
-    border: 8px ridge #ffff00;
-    outline: 5px dashed #ff00ff;
-    background: rgba(0, 0, 0, 0.55);
     box-shadow:
-        0 0 20px #ff0000,
-        0 0 40px #00ffff,
-        0 0 80px #ff00ff,
-        0 0 120px #ffff00;
-    animation: border-color 2s linear infinite;
-}
-
-@keyframes border-color {
-    0% { border-color: red; }
-    25% { border-color: yellow; }
-    50% { border-color: lime; }
-    75% { border-color: cyan; }
-    100% { border-color: magenta; }
-}
-
-/* Main title */
-h1 {
-    font-size: clamp(2.2rem, 7vw, 5rem);
-    font-weight: 1000;
-    background: linear-gradient(
-        90deg,
-        red, orange, yellow, lime,
-        cyan, blue, magenta, red
-    );
-    background-size: 400%;
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-
-    animation: rainbow-text 2s linear infinite;
-
-    text-shadow:
-        0 0 5px white,
-        0 0 15px cyan,
-        0 0 30px magenta;
-
-    -webkit-text-stroke: 1px white;
-}
-
-@keyframes rainbow-text {
-    from { background-position: 0%; }
-    to { background-position: 400%; }
+        0 0 20px red,
+        0 0 50px blue,
+        0 0 100px magenta;
 }
 
 p {
-    font-size: clamp(1.1rem, 3vw, 2rem);
-    font-weight: bold;
-    margin-top: 25px;
-    color: #ffffff;
-    text-shadow:
-        3px 3px 0 red,
-        -3px -3px 0 blue,
-        0 0 15px yellow,
-        0 0 30px magenta;
-}
-
-/* Moving rainbow decoration */
-.decor {
-    position: fixed;
-    font-size: 3rem;
-    animation: float 4s ease-in-out infinite alternate;
-    pointer-events: none;
-}
-
-.d1 { top: 10%; left: 10%; }
-.d2 { top: 15%; right: 10%; animation-delay: -1s; }
-.d3 { bottom: 12%; left: 15%; animation-delay: -2s; }
-.d4 { bottom: 10%; right: 12%; animation-delay: -3s; }
-
-@keyframes float {
-    from { transform: translateY(-20px) rotate(-15deg) scale(1); }
-    to { transform: translateY(20px) rotate(15deg) scale(1.5); }
-}
-
-/* Scrolling text */
-.ticker {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    background: #000;
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
     color: #00ff00;
-    font-size: 1.4rem;
     font-weight: bold;
-    padding: 12px;
-    text-shadow: 0 0 10px lime;
+    -webkit-text-stroke: 1px blue;
+    text-shadow: 4px 4px red, 0 0 15px yellow;
 }
 
-.ticker span {
+.badge {
     display: inline-block;
-    padding-left: 100%;
-    animation: scroll 12s linear infinite;
+    background: yellow;
+    color: red;
+    padding: 10px;
+    margin: 10px;
+    border: 5px outset magenta;
+    font-size: 1.3rem;
+    font-weight: 900;
+    animation: spin 5s linear infinite;
 }
 
-@keyframes scroll {
-    to { transform: translateX(-100%); }
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+marquee {
+    font-size: 2rem;
+    font-weight: 900;
+    color: yellow;
+    background: red;
+    padding: 12px;
+    border: 6px ridge cyan;
+}
+
+button {
+    font-family: "Comic Sans MS";
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 15px 30px;
+    color: yellow;
+    background: linear-gradient(red, purple, blue);
+    border: 8px outset lime;
+    cursor: pointer;
+    box-shadow: 8px 8px 0 black;
+}
+
+button:hover {
+    transform: scale(1.15) rotate(-3deg);
+}
+
+.stars {
+    font-size: 3rem;
+    animation: spin 8s linear infinite;
+}
+
+footer {
+    background: black;
+    color: lime;
+    padding: 20px;
+    font-size: 1.3rem;
+    border-top: 8px ridge magenta;
 }
 </style>
 </head>
 
 <body>
 
-<div class="decor d1">⚡</div>
-<div class="decor d2">🌈</div>
-<div class="decor d3">💎</div>
-<div class="decor d4">🔥</div>
+<marquee scrollamount="12">
+☠ WELCOME TO THE MOST EXTREME WEBSITE ON EARTH ☠
+⚡ RGB RGB RGB ⚡
+★ NO TASTE ONLY POWER ★
+</marquee>
 
-<div class="container">
-    <h1>⚡ WELCOME TO RYAN'S BLOG ⚡</h1>
+<div class="stars">🌈 💀 ⚡ 🔥 💎 ⚡ 💀 🌈</div>
 
-    <p>🌟 Electrical and Electronic Engineering 🌟</p>
+<h1>RYAN'S EXTREME ZONE!!!</h1>
 
-    <p>🏛️ University of Manchester 🏛️</p>
+<div class="panel">
 
-    <p>🚀 POWERED BY RGB & PURE CHAOS 🚀</p>
+    <div class="badge">★ LEGEND ★</div>
+    <div class="badge">⚡ RGB POWER ⚡</div>
+    <div class="badge">☠ 100% CHAOS ☠</div>
+
+    <h1>WELCOME TO RYAN'S BLOG!!!</h1>
+
+    <p>🔥 Electrical and Electronic Engineering 🔥</p>
+
+    <p>💥 UNIVERSITY OF MANCHESTER 💥</p>
+
+    <p>⚡ ENGINEER BY DAY, RGB BY NIGHT ⚡</p>
+
+    <br>
+
+    <button onclick="alert('WELCOME TO THE RGB DIMENSION!!!')">
+        CLICK ME!!!
+    </button>
+
 </div>
 
-<div class="ticker">
-    <span>
-        ⚡ WELCOME TO RYAN'S DOMAIN ⚡
-        ★ RGB NEVER DIES ★
-        🌈 MAXIMUM PERFORMANCE 🌈
-        🔥 ENGINEERING POWER 🔥
-        ⚡ WELCOME TO RYAN'S DOMAIN ⚡
-    </span>
-</div>
+<div class="stars">💎 🌈 🔥 ☠ ⚡ 🌈 💎</div>
+
+<marquee direction="right" scrollamount="15">
+★ BEST VIEWED WITH 9999 RGB FANS ★
+☠ POWERED BY PURE CHAOS ☠
+★ EST. 2026 ★
+</marquee>
+
+<footer>
+    © 2026 RYAN'S EXTREME ZONE
+    <br>
+    ALL RGB RESERVED!!!
+</footer>
 
 </body>
 </html>
