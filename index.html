@@ -1,12 +1,181 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Ryan's Blog</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚡ RYAN'S THUNDER BLOG ⚡</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Comic Sans MS", Impact, sans-serif;
+    background: linear-gradient(
+        45deg,
+        #ff0000,
+        #ff00ff,
+        #0000ff,
+        #00ffff,
+        #00ff00,
+        #ffff00,
+        #ff0000
+    );
+    background-size: 600% 600%;
+    animation: thunder 5s linear infinite;
+}
+
+/* Rainbow background */
+@keyframes thunder {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Main content */
+.container {
+    text-align: center;
+    padding: 45px 25px;
+    border: 8px ridge #ffff00;
+    outline: 5px dashed #ff00ff;
+    background: rgba(0, 0, 0, 0.55);
+    box-shadow:
+        0 0 20px #ff0000,
+        0 0 40px #00ffff,
+        0 0 80px #ff00ff,
+        0 0 120px #ffff00;
+    animation: border-color 2s linear infinite;
+}
+
+@keyframes border-color {
+    0% { border-color: red; }
+    25% { border-color: yellow; }
+    50% { border-color: lime; }
+    75% { border-color: cyan; }
+    100% { border-color: magenta; }
+}
+
+/* Main title */
+h1 {
+    font-size: clamp(2.2rem, 7vw, 5rem);
+    font-weight: 1000;
+    background: linear-gradient(
+        90deg,
+        red, orange, yellow, lime,
+        cyan, blue, magenta, red
+    );
+    background-size: 400%;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    animation: rainbow-text 2s linear infinite;
+
+    text-shadow:
+        0 0 5px white,
+        0 0 15px cyan,
+        0 0 30px magenta;
+
+    -webkit-text-stroke: 1px white;
+}
+
+@keyframes rainbow-text {
+    from { background-position: 0%; }
+    to { background-position: 400%; }
+}
+
+p {
+    font-size: clamp(1.1rem, 3vw, 2rem);
+    font-weight: bold;
+    margin-top: 25px;
+    color: #ffffff;
+    text-shadow:
+        3px 3px 0 red,
+        -3px -3px 0 blue,
+        0 0 15px yellow,
+        0 0 30px magenta;
+}
+
+/* Moving rainbow decoration */
+.decor {
+    position: fixed;
+    font-size: 3rem;
+    animation: float 4s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+.d1 { top: 10%; left: 10%; }
+.d2 { top: 15%; right: 10%; animation-delay: -1s; }
+.d3 { bottom: 12%; left: 15%; animation-delay: -2s; }
+.d4 { bottom: 10%; right: 12%; animation-delay: -3s; }
+
+@keyframes float {
+    from { transform: translateY(-20px) rotate(-15deg) scale(1); }
+    to { transform: translateY(20px) rotate(15deg) scale(1.5); }
+}
+
+/* Scrolling text */
+.ticker {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    background: #000;
+    color: #00ff00;
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding: 12px;
+    text-shadow: 0 0 10px lime;
+}
+
+.ticker span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll 12s linear infinite;
+}
+
+@keyframes scroll {
+    to { transform: translateX(-100%); }
+}
+</style>
 </head>
+
 <body>
-    <h1>Welcome to Ryan's Blog!</h1>
-    <p>Electrical and Electronic Engineering</p>
-    <p>University of Manchester</p>
+
+<div class="decor d1">⚡</div>
+<div class="decor d2">🌈</div>
+<div class="decor d3">💎</div>
+<div class="decor d4">🔥</div>
+
+<div class="container">
+    <h1>⚡ WELCOME TO RYAN'S BLOG ⚡</h1>
+
+    <p>🌟 Electrical and Electronic Engineering 🌟</p>
+
+    <p>🏛️ University of Manchester 🏛️</p>
+
+    <p>🚀 POWERED BY RGB & PURE CHAOS 🚀</p>
+</div>
+
+<div class="ticker">
+    <span>
+        ⚡ WELCOME TO RYAN'S DOMAIN ⚡
+        ★ RGB NEVER DIES ★
+        🌈 MAXIMUM PERFORMANCE 🌈
+        🔥 ENGINEERING POWER 🔥
+        ⚡ WELCOME TO RYAN'S DOMAIN ⚡
+    </span>
+</div>
+
 </body>
 </html>
